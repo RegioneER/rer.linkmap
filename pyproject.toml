@@ -3,7 +3,7 @@ name = "redturtle.linkmap"
 dynamic = ["version"]
 description = "A new addon for Plone"
 readme = "README.md"
-license = "GPL-2.0-only"
+license = { text = "GPL-2.0-only" }
 requires-python = ">=3.10"
 authors = [
     { name = "RedTurtle Technology", email = "info@redturtle.it" },
