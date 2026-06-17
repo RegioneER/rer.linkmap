@@ -1,0 +1,21 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="redturtle.linkmap"
+    >
+
+  <browser:page
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      name="at_map.json"
+      class=".views.ATMapJSONView"
+      permission="zope2.View"
+      />
+
+  <browser:page
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      name="at_map.xml"
+      class=".views.ATMapXMLView"
+      permission="zope2.View"
+      />
+
+</configure>

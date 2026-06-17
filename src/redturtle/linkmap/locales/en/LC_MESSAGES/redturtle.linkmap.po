@@ -1,0 +1,45 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2022-05-25 17:12+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: redturtle.linkmap\n"
+
+msgid "data_ultima_modifica_title"
+msgstr "Last update date"
+
+msgid "data_ultima_modifica_description"
+msgstr "Date in DD/MM/YYYY format. If empty, current date will be used."
+
+msgid "map_entries_title"
+msgstr "Link map"
+
+msgid "map_entries_description"
+msgstr "One line per item using key|url format. Only c.1 schema keys are allowed."
+
+msgid "invalid_entries_line"
+msgstr "Each row must be in 'key|url' format."
+
+msgid "invalid_entries_key"
+msgstr "Invalid key for selected category."
+
+msgid "invalid_entries_url"
+msgstr "Invalid URL."
+
+msgid "missing_required_root_key"
+msgstr "Please add the required root section row."
+
+msgid "invalid_date"
+msgstr "Date must be in DD/MM/YYYY format."
+
+msgid "linkmap_controlpanel_title"
+msgstr "Link Map Amministrazione Trasparente Configuration"
