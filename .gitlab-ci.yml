@@ -1,0 +1,90 @@
+default:
+  image: docker:24.0.5
+  services:
+    - docker:24.0.5-dind
+  before_script:
+    - apk add --no-cache make bash python3 ncurses openssh-client-common
+    - echo "$CI_REGISTRY_PASSWORD" | docker login $CI_REGISTRY -u $CI_REGISTRY_USER --password-stdin
+
+stages:
+  - check
+  - test
+  # - build
+  - publish
+  # - deploy
+
+variables:
+  # Use TLS https://docs.gitlab.com/ee/ci/docker/using_docker_build.html#tls-enabled
+  DOCKER_TLS_CERTDIR: "/certs"
+
+changelog-backend:
+  stage: check
+  image: python:3.12-bookworm
+  before_script:
+    - apt-get update -qq && apt-get install -y --no-install-recommends git curl
+    - curl -LsSf https://astral.sh/uv/install.sh | sh
+    - source $HOME/.local/bin/env
+    - git fetch origin $CI_MERGE_REQUEST_TARGET_BRANCH_NAME
+  script:
+    - uvx towncrier check --compare-with origin/$CI_MERGE_REQUEST_TARGET_BRANCH_NAME --config pyproject.toml
+  rules:
+    - if: $CI_PIPELINE_SOURCE == 'merge_request_event'
+
+check-backend:
+  image: python:3.12-bookworm
+  stage: check
+  before_script:
+    - apt-get update -qq
+    - apt-get install -y build-essential python3 python3-dev git make curl jq
+    # - apk add --no-cache make bash python3 ncurses openssh-client-common git curl jq
+    - curl -LsSf https://astral.sh/uv/install.sh | sh
+    - source $HOME/.local/bin/env
+  script:
+    - make lint
+
+test-backend:
+  stage: test
+  image: python:3.12-bookworm
+  needs:
+    - check-backend
+  before_script:
+    - apt-get update -qq
+    - apt-get install -y build-essential python3 python3-dev git make curl jq
+    - curl -LsSf https://astral.sh/uv/install.sh | sh
+    - source $HOME/.local/bin/env
+  script:
+    - make install
+    - make test
+
+publish-backend:
+  stage: publish
+  image: python:3.12-bookworm
+  # needs:
+  #  - test-backend
+  variables:
+    # uv reads these env vars automatically — no code changes needed
+    UV_PUBLISH_URL: "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/pypi"
+    UV_PUBLISH_USERNAME: "gitlab-ci-token"
+    UV_PUBLISH_PASSWORD: "${CI_JOB_TOKEN}"
+  before_script:
+    - apt-get update -qq
+    - apt-get install -y build-essential python3 python3-dev git make curl jq
+    - curl -LsSf https://astral.sh/uv/install.sh | sh
+    - source $HOME/.local/bin/env
+  rules:
+    - if: $CI_COMMIT_TAG
+  script:
+    - set -e
+    - uv build
+    - uv publish --verbose
+
+# build-backend:
+#   stage: build
+#   needs:
+#     - test-backend
+#   script:
+#     - set -e
+#     - make build-image
+#     - docker push $CONTAINER_BACKEND_RELEASE_IMAGE:latest
+#   rules:
+#     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH

@@ -5,7 +5,7 @@
 >
 
   <configlet action_id="RedturtleLinkMapSettings"
-             appId="redturtle.linkmap.settings"
+             appId="redturtle.linkmap"
              category="Products"
              condition_expr=""
              icon_expr=""

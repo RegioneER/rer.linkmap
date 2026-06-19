@@ -19,6 +19,7 @@
   <include package=".browser" />
   <include package=".controlpanels" />
   <include package=".indexers" />
+  <include package=".restapi" />
   <include package=".serializers" />
   <include package=".vocabularies" />
 

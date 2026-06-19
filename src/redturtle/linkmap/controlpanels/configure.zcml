@@ -5,8 +5,8 @@
     >
 
   <browser:page
-      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
       name="linkmap-settings"
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
       class=".settings.LinkMapControlPanelView"
       permission="cmf.ManagePortal"
       />

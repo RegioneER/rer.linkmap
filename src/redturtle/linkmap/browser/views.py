@@ -1,42 +1,55 @@
+from Acquisition import aq_base
 from json import dumps
 from plone import api
 from Products.Five import BrowserView
 from redturtle.linkmap.linkmap import CATEGORY_C1
 from redturtle.linkmap.linkmap import CATEGORY_KEYS
-from redturtle.linkmap.linkmap import build_category_map
 from redturtle.linkmap.linkmap import ensure_required_root_url
 from redturtle.linkmap.linkmap import is_valid_date
+from redturtle.linkmap.linkmap import is_valid_url
 from redturtle.linkmap.linkmap import today_date_string
 from xml.sax.saxutils import escape
-
+from zExceptions import NotFound
 
 REGISTRY_PREFIX = "redturtle.linkmap.controlpanels.settings.ILinkMapSettings"
+ROOT_KEY = "amministrazione_trasparente"
 
 
-def get_linkmap_entries():
+def get_registry_value(field_name, default=""):
     return api.portal.get_registry_record(
-        f"{REGISTRY_PREFIX}.entries",
-        default="",
+        f"{REGISTRY_PREFIX}.{field_name}",
+        default=default,
     )
+
+
+def get_expose_json():
+    return get_registry_value("expose_json", default=True)
+
+
+def get_expose_xml():
+    return get_registry_value("expose_xml", default=True)
 
 
 def get_data_ultima_modifica():
-    value = api.portal.get_registry_record(
-        f"{REGISTRY_PREFIX}.data_ultima_modifica",
-        default="",
-    )
+    value = get_registry_value("data_ultima_modifica")
     if is_valid_date(value):
         return value
     return today_date_string()
 
 
+def build_category_map_from_fields():
+    """Build category map from individual field values."""
+    category_map = {}
+    for key in CATEGORY_KEYS:
+        value = get_registry_value(key)
+        if value and is_valid_url(value.strip()):
+            category_map[key] = value.strip()
+    return category_map
+
+
 def build_payload():
-    raw_entries = get_linkmap_entries()
     data_ultima_modifica = get_data_ultima_modifica()
-    try:
-        category_map = build_category_map(raw_entries)
-    except ValueError:
-        category_map = {}
+    category_map = build_category_map_from_fields()
     ensure_required_root_url(category_map, api.portal.get().absolute_url())
 
     payload = {
@@ -51,7 +64,8 @@ def build_xml(payload):
     lines = [
         '<?xml version="1.0" encoding="utf-8"?>',
         root_open,
-        f"  <data_ultima_modifica>{escape(payload['data_ultima_modifica'])}</data_ultima_modifica>",
+        f"  <data_ultima_modifica>{escape(payload['data_ultima_modifica'])}"
+        "</data_ultima_modifica>",
         "  <map>",
     ]
 
@@ -71,13 +85,25 @@ def build_xml(payload):
 
 class ATMapJSONView(BrowserView):
     def __call__(self):
-        self.request.response.setHeader("Content-Type", "application/json; charset=utf-8")
+        if aq_base(self.context) is not aq_base(api.portal.get()):
+            raise NotFound()
+        if not get_expose_json():
+            raise NotFound("JSON view is not enabled")
+        self.request.response.setHeader(
+            "Content-Type", "application/json; charset=utf-8"
+        )
         payload = build_payload()
         return dumps(payload, indent=2, ensure_ascii=False, sort_keys=True)
 
 
 class ATMapXMLView(BrowserView):
     def __call__(self):
-        self.request.response.setHeader("Content-Type", "application/xml; charset=utf-8")
+        if aq_base(self.context) is not aq_base(api.portal.get()):
+            raise NotFound()
+        if not get_expose_xml():
+            raise NotFound("XML view is not enabled")
+        self.request.response.setHeader(
+            "Content-Type", "application/xml; charset=utf-8"
+        )
         payload = build_payload()
         return build_xml(payload)

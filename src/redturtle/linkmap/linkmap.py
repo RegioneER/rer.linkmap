@@ -1,7 +1,8 @@
 from datetime import date
 
 import re
-
+from zope.schema import URI
+from zope.schema.interfaces import InvalidURI
 
 CATEGORY_C1 = "at_art2_bis_c1"
 ROOT_KEY = "amministrazione_trasparente"
@@ -80,17 +81,8 @@ CATEGORY_KEYS = (
     "liste_di_attesa",
 )
 
-URL_RE = re.compile(
-    r"(https:\/\/www\.|http:\/\/www\.|https:\/\/|http:\/\/)?[-_\/a-zA-Z]{2,}"
-    r"(\.[-_\/a-zA-Z]{2,})(\.[-_\/a-zA-Z]{2,})?\/[-_\/a-zA-Z0-9]{2,}"
-    r"|((https:\/\/www\.|http:\/\/www\.|https:\/\/|http:\/\/)?[-_\/a-zA-Z]{2,}"
-    r"(\.[-_\/a-zA-Z]{2,})(\.[-_\/a-zA-Z]{2,})?)"
-    r"|(https:\/\/www\.|http:\/\/www\.|https:\/\/|http:\/\/)?"
-    r"[-_\/a-zA-Z0-9]{2,}\.[-_\/a-zA-Z0-9]{2,}\.[-_\/a-zA-Z0-9]{2,}"
-    r"(\.[-_\/a-zA-Z0-9]{2,})?"
-)
-
 DATE_RE = re.compile(r"^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/([2]\d{3})$")
+URL_FIELD = URI(required=False)
 
 
 def is_valid_date(value):
@@ -102,7 +94,13 @@ def today_date_string():
 
 
 def is_valid_url(value):
-    return bool(value and URL_RE.fullmatch(value.strip()))
+    if not value:
+        return False
+    try:
+        URL_FIELD.validate(value.strip())
+    except InvalidURI:
+        return False
+    return True
 
 
 def allowed_keys():

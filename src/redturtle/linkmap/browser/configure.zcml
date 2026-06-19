@@ -5,15 +5,15 @@
     >
 
   <browser:page
-      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
       name="at_map.json"
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
       class=".views.ATMapJSONView"
       permission="zope2.View"
       />
 
   <browser:page
-      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
       name="at_map.xml"
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
       class=".views.ATMapXMLView"
       permission="zope2.View"
       />

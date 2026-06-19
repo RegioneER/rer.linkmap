@@ -17,6 +17,6 @@ class TestSetupInstall:
         assert profile_last_version(f"{PACKAGE_NAME}:default") == "1000"
 
     def test_controlpanel_registered(self, portal):
-        actions = portal.portal_actions.controlpanel.listActions()
+        actions = portal.portal_controlpanel.listActions()
         action_ids = {action.id for action in actions}
         assert "RedturtleLinkMapSettings" in action_ids

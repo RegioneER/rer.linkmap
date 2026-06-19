@@ -4,7 +4,13 @@ This is a shim to allow installation and releases with older tools that expect s
 The actual configuration is in pyproject.toml.
 """
 
-from setuptools import setup
+try:
+    from setuptools import setup
+except ImportError:
+
+    def setup(**kwargs):
+        pass
+
 
 if __name__ == "__main__":
     setup()
