@@ -1,5 +1,5 @@
 [project]
-name = "redturtle.linkmap"
+name = "rer.linkmap"
 dynamic = ["version"]
 description = "A new addon for Plone"
 readme = "README.md"
@@ -53,10 +53,10 @@ release = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/redturtle/redturtle.linkmap"
-PyPI = "https://pypi.org/project/redturtle.linkmap"
-Source = "https://github.com/redturtle/redturtle.linkmap"
-Tracker = "https://github.com/redturtle/redturtle.linkmap/issues"
+Homepage = "https://github.com/redturtle/rer.linkmap"
+PyPI = "https://pypi.org/project/rer.linkmap"
+Source = "https://github.com/redturtle/rer.linkmap"
+Tracker = "https://github.com/redturtle/rer.linkmap/issues"
 
 
 [project.entry-points."z3c.autoinclude.plugin"]
@@ -66,7 +66,7 @@ target = "plone"
 managed = false
 
 [tool.hatch.version]
-path = "src/redturtle/linkmap/__init__.py"
+path = "src/rer/linkmap/__init__.py"
 
 [build-system]
 requires = ["hatchling"]
@@ -81,7 +81,7 @@ exclude = [
 ]
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/redturtle"]
+packages = ["src/rer"]
 
 [tool.towncrier]
 directory = "news/"
@@ -89,7 +89,7 @@ filename = "CHANGELOG.md"
 start_string = "<!-- towncrier release notes start -->\n"
 title_format = "## {version} ({project_date})"
 template = "news/.changelog_template.jinja"
-issue_format = "[#{issue}](https://github.com/redturtle/redturtle.linkmap/issues/{issue})"
+issue_format = "[#{issue}](https://github.com/redturtle/rer.linkmap/issues/{issue})"
 underlines = ["", "", ""]
 
 [[tool.towncrier.type]]
@@ -178,12 +178,12 @@ preview = true
 testpaths = ["tests"]
 
 [tool.coverage.run]
-source_pkgs = ["redturtle.linkmap", "tests"]
+source_pkgs = ["rer.linkmap", "tests"]
 branch = true
 parallel = true
 omit = [
-  "src/redturtle/linkmap/locales/*.py",
+  "src/rer/linkmap/locales/*.py",
 ]
 
 [tool.zest-releaser]
-python-file-with-version = "src/redturtle/linkmap/__init__.py"
+python-file-with-version = "src/rer/linkmap/__init__.py"

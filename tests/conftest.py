@@ -1,16 +1,17 @@
 from pytest_plone import fixtures_factory
-from redturtle.linkmap.testing import ACCEPTANCE_TESTING
-from redturtle.linkmap.testing import FUNCTIONAL_TESTING
-from redturtle.linkmap.testing import INTEGRATION_TESTING
-
+from rer.linkmap.testing import ACCEPTANCE_TESTING
+from rer.linkmap.testing import FUNCTIONAL_TESTING
+from rer.linkmap.testing import INTEGRATION_TESTING
 
 pytest_plugins = ["pytest_plone"]
 
 
 globals().update(
-    fixtures_factory((
-        (ACCEPTANCE_TESTING, "acceptance"),
-        (FUNCTIONAL_TESTING, "functional"),
-        (INTEGRATION_TESTING, "integration"),
-    ))
+    fixtures_factory(
+        (
+            (ACCEPTANCE_TESTING, "acceptance"),
+            (FUNCTIONAL_TESTING, "functional"),
+            (INTEGRATION_TESTING, "integration"),
+        )
+    )
 )

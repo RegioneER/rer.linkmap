@@ -7,7 +7,7 @@ myst:
     "keywords": "Plone, documentation, glossary, term, definition"
 ---
 
-This glossary provides example terms and definitions relevant to **redturtle.linkmap**.
+This glossary provides example terms and definitions relevant to **rer.linkmap**.
 A new addon for Plone
 
 ```{note}

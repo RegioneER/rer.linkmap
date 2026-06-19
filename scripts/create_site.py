@@ -2,14 +2,13 @@ from AccessControl.SecurityManagement import newSecurityManager
 from Products.CMFPlone.factory import _DEFAULT_PROFILE
 from Products.CMFPlone.factory import addPloneSite
 from Products.GenericSetup.tool import SetupTool
-from redturtle.linkmap.interfaces import IBrowserLayer
+from rer.linkmap.interfaces import IBrowserLayer
 from Testing.makerequest import makerequest
 from zope.interface import directlyProvidedBy
 from zope.interface import directlyProvides
 
 import os
 import transaction
-
 
 truthy = frozenset(("t", "true", "y", "yes", "on", "1"))
 
@@ -44,7 +43,7 @@ newSecurityManager(None, admin)
 
 site_id = "Plone"
 payload = {
-    "title": "redturtle.linkmap",
+    "title": "rer.linkmap",
     "profile_id": _DEFAULT_PROFILE,
     "distribution_name": "volto",
     "setup_content": False,
@@ -62,5 +61,5 @@ if site_id not in app.objectIds():
     transaction.commit()
 
     portal_setup: SetupTool = site.portal_setup
-    portal_setup.runAllImportStepsFromProfile("profile-redturtle.linkmap:default")
+    portal_setup.runAllImportStepsFromProfile("profile-rer.linkmap:default")
     transaction.commit()

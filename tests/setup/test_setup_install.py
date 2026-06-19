@@ -1,14 +1,14 @@
-from redturtle.linkmap import PACKAGE_NAME
+from rer.linkmap import PACKAGE_NAME
 
 
 class TestSetupInstall:
     def test_addon_installed(self, installer):
-        """Test if redturtle.linkmap is installed."""
+        """Test if rer.linkmap is installed."""
         assert installer.is_product_installed(PACKAGE_NAME) is True
 
     def test_browserlayer(self, browser_layers):
         """Test that IBrowserLayer is registered."""
-        from redturtle.linkmap.interfaces import IBrowserLayer
+        from rer.linkmap.interfaces import IBrowserLayer
 
         assert IBrowserLayer in browser_layers
 
@@ -19,4 +19,4 @@ class TestSetupInstall:
     def test_controlpanel_registered(self, portal):
         actions = portal.portal_controlpanel.listActions()
         action_ids = {action.id for action in actions}
-        assert "RedturtleLinkMapSettings" in action_ids
+        assert "RerLinkMapSettings" in action_ids

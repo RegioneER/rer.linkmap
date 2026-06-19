@@ -124,7 +124,7 @@ check: format lint ## Check and fix code base according to Plone standards
 .PHONY: i18n
 i18n: $(VENV_FOLDER) ## Update locales
 	@echo "$(GREEN)==> Updating locales$(RESET)"
-	@$(BIN_FOLDER)/python -m redturtle.linkmap.locales
+	@$(BIN_FOLDER)/python -m rer.linkmap.locales
 
 # Tests
 .PHONY: test
@@ -133,7 +133,7 @@ test: $(VENV_FOLDER) ## run tests
 
 .PHONY: test-coverage
 test-coverage: $(VENV_FOLDER) ## run tests with coverage
-	@$(BIN_FOLDER)/pytest --cov=redturtle.linkmap --cov-report term-missing
+	@$(BIN_FOLDER)/pytest --cov=rer.linkmap --cov-report term-missing
 
 ## Add bobtemplates features (check bobtemplates.plone's documentation to get the list of available features)
 add: $(VENV_FOLDER)

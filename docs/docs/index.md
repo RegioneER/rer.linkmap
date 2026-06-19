@@ -3,13 +3,13 @@ myst:
   html_meta:
     "description": "A new addon for Plone"
     "property=og:description": "A new addon for Plone"
-    "property=og:title": "redturtle.linkmap"
-    "keywords": "redturtle.linkmap, documentation, A new addon for Plone"
+    "property=og:title": "rer.linkmap"
+    "keywords": "rer.linkmap, documentation, A new addon for Plone"
 ---
 
-# redturtle.linkmap
+# rer.linkmap
 
-Welcome to the documentation for redturtle.linkmap!
+Welcome to the documentation for rer.linkmap!
 A new addon for Plone
 
 This scaffold provides a ready-to-use environment for creating comprehensive documentation for {term}`Plone` projects, based on {term}`Plone Sphinx Theme`.

@@ -1,6 +1,6 @@
-# redturtle.linkmap
+# rer.linkmap
 
-Documentation for redturtle.linkmap.
+Documentation for rer.linkmap.
 A new addon for Plone
 
 This project provides a Sphinx-based documentation environment for your Plone project, powered by the [Plone Sphinx Theme](https://github.com/plone/plone-sphinx-theme).
@@ -59,7 +59,7 @@ make help
 ```
 
 
-## Customize the redturtle.linkmap documentation
+## Customize the rer.linkmap documentation
 
 This section provides how-to guidance to customize your documentation.
 

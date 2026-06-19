@@ -1,4 +1,4 @@
-# redturtle.linkmap
+# rer.linkmap
 
 A new addon for Plone.
 

@@ -1,0 +1,14 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="rer.linkmap"
+    >
+
+  <browser:page
+      name="linkmap-settings"
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      class=".settings.LinkMapControlPanelView"
+      permission="cmf.ManagePortal"
+      />
+
+</configure>

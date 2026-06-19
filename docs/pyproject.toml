@@ -1,8 +1,8 @@
 [project]
-name = "redturtle_linkmap_Documentation"
+name = "rer_linkmap_Documentation"
 description = "A new addon for Plone"
 keywords = [
-    "redturtle.linkmap",
+    "rer.linkmap",
     "documentation",
     "Plone",
     "Diátaxis",
@@ -53,9 +53,9 @@ dev = [
 ]
 
 [project.urls]
-Repository = "https://github.com/redturtle/redturtlelinkmap"
+Repository = "https://github.com/redturtle/rerlinkmap"
 Documentation = "https://MY_READTHEDOCS_PROJECT_SLUG.readthedocs.io/"
-
+    
 [build-system]
 requires = ["setuptools"]
 build-backend = "setuptools.build_meta"

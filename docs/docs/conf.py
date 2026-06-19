@@ -1,5 +1,5 @@
 # Configuration file for the Sphinx documentation builder.
-# redturtle.linkmap build configuration file
+# rer.linkmap build configuration file
 
 
 # -- Path setup --------------------------------------------------------------
@@ -19,7 +19,7 @@ from plone_sphinx_theme import __version__
 
 # -- Project information -----------------------------------------------------
 
-project = "redturtle.linkmap"
+project = "rer.linkmap"
 author = "RedTurtle Technology"
 trademark_name = "redturtle"
 now = datetime.now()
@@ -95,7 +95,7 @@ linkcheck_ignore = [
     # Ignore file downloads
     r"^/_static/",
     # Ignore pages that require authentication
-    r"https://github.com/redturtle/redturtlelinkmap/issues/new",  # requires auth
+    r"https://github.com/redturtle/rerlinkmap/issues/new",  # requires auth
     # Ignore github.com pages with anchors
     r"https://github.com/.*#.*",
     # Ignore other specific anchors
@@ -159,7 +159,7 @@ html_theme_options = {
     "icon_links": [
         {
             "name": "GitHub",
-            "url": "https://github.com/redturtle/redturtlelinkmap",
+            "url": "https://github.com/redturtle/rerlinkmap",
             "icon": "fa-brands fa-square-github",
             "type": "fontawesome",
             "attributes": {
@@ -181,12 +181,12 @@ html_theme_options = {
         # },
     ],
     "logo": {
-        "text": "redturtle.linkmap",
+        "text": "rer.linkmap",
     },
     "navigation_with_keys": True,
     "path_to_docs": "docs/docs",
     "repository_branch": "main",
-    "repository_url": "https://github.com/redturtle/redturtlelinkmap",
+    "repository_url": "https://github.com/redturtle/rerlinkmap",
     "search_bar_text": "Search",
     "show_toc_level": 2,
     "use_edit_page_button": True,
@@ -196,7 +196,7 @@ html_theme_options = {
 # suggest edit link
 # remark:  is mandatory in "edit_page_url_template"
 # html_context = {
-#     "edit_page_url_template": "https://github.com/redturtle/redturtlelinkmap/edit/main/docs/",
+#     "edit_page_url_template": "https://github.com/redturtle/rerlinkmap/edit/main/docs/",
 # }
 
 # Announce that we have an opensearch plugin
@@ -292,7 +292,7 @@ mermaid_version = "11.2.0"
 ogp_site_url = "https://MY_READTHEDOCS_PROJECT_SLUG.readthedocs.io/"
 ogp_description_length = 200
 ogp_image = "https://MY_READTHEDOCS_PROJECT_SLUG/_static/MY_LOGO.svg"
-ogp_site_name = "redturtle.linkmap Documentation"
+ogp_site_name = "rer.linkmap Documentation"
 ogp_type = "website"
 ogp_custom_meta_tags = [
     '<meta property="og:locale" content="en_US" />',
@@ -327,7 +327,7 @@ tippy_props = {
 # -- Options for HTML help output -------------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = "redturtle.linkmapDocumentation"
+htmlhelp_basename = "rer.linkmapDocumentation"
 
 
 # -- Options for LaTeX output -------------------------------------------------
@@ -337,8 +337,8 @@ htmlhelp_basename = "redturtle.linkmapDocumentation"
 latex_documents = [
     (
         "index",
-        "redturtle.linkmapDocumentation.tex",
-        "redturtle.linkmap Documentation",
+        "rer.linkmapDocumentation.tex",
+        "rer.linkmap Documentation",
         "redturtle community",
         "manual",
     ),

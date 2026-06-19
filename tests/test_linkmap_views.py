@@ -1,5 +1,5 @@
 from json import loads
-from redturtle.linkmap.controlpanels.settings import ILinkMapSettings
+from rer.linkmap.controlpanels.settings import ILinkMapSettings
 from defusedxml.ElementTree import fromstring as safe_fromstring
 
 import plone.api

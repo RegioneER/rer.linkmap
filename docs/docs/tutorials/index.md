@@ -1,10 +1,10 @@
 ---
 myst:
   html_meta:
-    "description": "redturtle.linkmap Tutorials"
-    "property=og:description": "redturtle.linkmap Tutorials"
-    "property=og:title": "redturtle.linkmap Tutorials"
-    "keywords": "Plone, redturtle.linkmap, tutorials"
+    "description": "rer.linkmap Tutorials"
+    "property=og:description": "rer.linkmap Tutorials"
+    "property=og:title": "rer.linkmap Tutorials"
+    "keywords": "Plone, rer.linkmap, tutorials"
 ---
 
 # Tutorials

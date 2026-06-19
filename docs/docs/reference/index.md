@@ -1,10 +1,10 @@
 ---
 myst:
   html_meta:
-    "description": "redturtle.linkmap Reference"
-    "property=og:description": "redturtle.linkmap Reference"
-    "property=og:title": "redturtle.linkmap Reference"
-    "keywords": "Plone, _redturtle.linkmap,_ reference"
+    "description": "rer.linkmap Reference"
+    "property=og:description": "rer.linkmap Reference"
+    "property=og:title": "rer.linkmap Reference"
+    "keywords": "Plone, _rer.linkmap,_ reference"
 ---
 
 # Reference

@@ -1,10 +1,10 @@
 ---
 myst:
   html_meta:
-    "description": "redturtle.linkmap how-to guides"
-    "property=og:description": "redturtle.linkmap how-to guides"
-    "property=og:title": "redturtle.linkmap how-to guides"
-    "keywords": "Plone, redturtle.linkmap, how-to, guides"
+    "description": "rer.linkmap how-to guides"
+    "property=og:description": "rer.linkmap how-to guides"
+    "property=og:title": "rer.linkmap how-to guides"
+    "keywords": "Plone, rer.linkmap, how-to, guides"
 ---
 
 # How-to guides
