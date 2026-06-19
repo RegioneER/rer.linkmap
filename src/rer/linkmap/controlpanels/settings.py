@@ -18,7 +18,7 @@ def _category_field(key):
         ),
         description=_(
             f"{key}_description",
-            default=f"URL per {key}",
+            default="Inserisci l'url per questo dato",
         ),
         required=False,
     )
@@ -178,7 +178,7 @@ class LinkMapControlPanelForm(RegistryEditForm):
     id = "redturtle-linkmap-settings"
     label = _(
         "linkmap_controlpanel_title",
-        default="Link Map",
+        default=" Configurazione Link Map",
     )
 
 

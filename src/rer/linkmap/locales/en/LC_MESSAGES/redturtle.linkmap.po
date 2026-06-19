@@ -42,4 +42,4 @@ msgid "invalid_date"
 msgstr "Date must be in DD/MM/YYYY format."
 
 msgid "linkmap_controlpanel_title"
-msgstr "Link Map Amministrazione Trasparente Configuration"
+msgstr "Link Map Configuration"
