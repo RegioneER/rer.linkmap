@@ -1,0 +1,30 @@
+name: Tests
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 4
+      matrix:
+        python: ['3.11']
+        plone: ['6.0-latest']
+
+    steps:
+      - uses: actions/checkout@v5
+      - name: Set up Python ${{ matrix.python }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Cache pip
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.OS }}-build-python${{ matrix.python }}-${{ matrix.plone }}
+      - name: Install
+        run: |
+          pip install -c https://dist.plone.org/release/${{ matrix.plone }}/constraints.txt -e ".[test]"
+      - name: Run tests
+        run: |
+          pytest tests/ -v

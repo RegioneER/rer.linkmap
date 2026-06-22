@@ -44,6 +44,5 @@ var/
 constraints*.txt
 requirements*.txt
 
-.github/
 .vscode/
 *.mo
