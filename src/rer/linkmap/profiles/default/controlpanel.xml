@@ -9,7 +9,7 @@
              category="Products"
              condition_expr=""
              icon_expr=""
-             title="Configurazione Link Map"
+             title="Configurazione at_map"
              url_expr="string:${portal_url}/@@linkmap-settings"
              visible="True"
              i18n:attributes="title"

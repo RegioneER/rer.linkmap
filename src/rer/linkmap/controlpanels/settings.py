@@ -178,7 +178,7 @@ class LinkMapControlPanelForm(RegistryEditForm):
     id = "redturtle-linkmap-settings"
     label = _(
         "linkmap_controlpanel_title",
-        default=" Configurazione Link Map",
+        default="Configurazione at_map",
     )
 
 

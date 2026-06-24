@@ -15,7 +15,7 @@ msgstr ""
 "Domain: rer.linkmap\n"
 
 msgid "linkmap_controlpanel_title"
-msgstr "Configurazione Link Map"
+msgstr "Configurazione at_map"
 
 msgid "expose_json_title"
 msgstr "Esponi vista JSON"

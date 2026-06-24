@@ -1,0 +1,72 @@
+# This repository adheres to the publiccode.yml standard by including this
+# metadata file that makes public software easily discoverable.
+# More info at https://github.com/italia/publiccode.yml
+
+publiccodeYmlVersion: '0.2'
+categories:
+  - application-development
+dependsOn:
+  open:
+    - name: Plone
+      optional: false
+      version: ''
+      versionMax: ''
+      versionMin: '5.1'
+logo: docs/rer-logo.png
+description:
+  it:
+    features:
+      - JSON and XML link map of the Amministrazione Trasparente section
+      - Configuration of the link map via control panel
+    genericName: Plone addon
+    longDescription: >
+      This product give the ability to configure via a controlpanel the list of all
+      links specified here:
+      https://guida-servizi.anticorruzione.it/it/help/trasparenza/amministrazione-trasparente/#la-mappa-dei-link-della-sezione-at
+
+      The link map can be exposed in JSON or XML formats, accessible through a Plone
+      browserview.
+    shortDescription: Addon per le mappe link per Plone
+developmentStatus: stable
+it:
+  riuso:
+    codiceIPA: r_emiro
+  conforme:
+    gdpr: true
+    lineeGuidaDesign: false
+    misureMinimeSicurezza: true
+    modelloInteroperabilita: true
+  countryExtensionVersion: '0.2'
+  piattaforme:
+    anpr: false
+    cie: false
+    pagopa: false
+    spid: false
+legal:
+  license: GPL-2.0-or-later
+  mainCopyrightOwner: Regione Emilia-Romagna
+  repoOwner: Regione Emilia-Romagna
+localisation:
+  availableLanguages:
+    - it
+    - en
+  localisationReady: true
+maintenance:
+  contacts:
+    - affiliation: Regione Emilia-Romagna
+      email: webmaster@regione.emilia-romagna.it
+      name: Sara Turra
+  contractors:
+    - name: RedTurtle
+      until: '2025-12-31'
+      website: 'https://www.redturtle.it/'
+  type: contract
+name: rer.linkmap
+platforms:
+  - web
+releaseDate: '2026-06-22'
+softwareType: addon
+softwareVersion: 1.0.0
+url: 'https://github.com/RegioneER/rer.linkmap'
+usedBy:
+  - Regione Emilia-Romagna

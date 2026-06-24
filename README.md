@@ -1,6 +1,11 @@
 # rer.linkmap
 
-A new addon for Plone.
+This product give the ability to configure via a controlpanel the list of all
+links specified here:
+https://guida-servizi.anticorruzione.it/it/help/trasparenza/amministrazione-trasparente/#la-mappa-dei-link-della-sezione-at
+
+The link map can be exposed in JSON or XML formats, accessible through a Plone
+browserview.
 
 ## License
 
