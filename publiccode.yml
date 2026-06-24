@@ -12,7 +12,6 @@ dependsOn:
       version: ''
       versionMax: ''
       versionMin: '5.1'
-logo: docs/rer-logo.png
 description:
   EN:
     features:
