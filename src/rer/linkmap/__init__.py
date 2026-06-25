@@ -4,7 +4,7 @@ from zope.i18nmessageid import MessageFactory
 
 import logging
 
-__version__ = "1.0.3"
+__version__ = "1.0.4.dev0"
 
 PACKAGE_NAME = "rer.linkmap"
 
