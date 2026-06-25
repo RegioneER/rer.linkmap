@@ -3,8 +3,8 @@ from plone.app.registry.browser.controlpanel import RegistryEditForm
 from rer.linkmap import _
 from rer.linkmap.linkmap import is_valid_date
 from zope.interface import Interface
-from zope.interface import invariant
 from zope.interface import Invalid
+from zope.interface import invariant
 from zope.schema import Bool
 from zope.schema import TextLine
 from zope.schema import URI

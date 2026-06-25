@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-from plone import api
-from plone.app.testing import TEST_USER_ID
-from rer.linkmap.testing import RER_LINKMAP_INTEGRATION_TESTING  # noqa: E501
-from json import loads
-from plone.app.testing import setRoles
-from rer.linkmap.controlpanels.settings import ILinkMapSettings
 from defusedxml.ElementTree import fromstring as safe_fromstring
+from json import loads
+from plone import api
+from plone.app.testing import setRoles
+from plone.app.testing import TEST_USER_ID
+from rer.linkmap.controlpanels.settings import ILinkMapSettings
+from rer.linkmap.testing import RER_LINKMAP_INTEGRATION_TESTING  # noqa: E501
 from zExceptions import NotFound
 
 import unittest
