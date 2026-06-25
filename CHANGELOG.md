@@ -1,7 +1,7 @@
 ## 1.0.5 (unreleased)
 
 
-- Nothing changed yet.
+- Set strict-naming = false in pyproject.toml to be able to build with old python versions. [cekk]
 
 
 ## 1.0.4 (2026-06-25)
