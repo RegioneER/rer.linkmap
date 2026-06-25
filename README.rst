@@ -20,44 +20,29 @@
     :target: https://pypi.python.org/pypi/rer.linkmap
     :alt: Egg Status
 
-.. image:: https://img.shields.io/pypi/pyversions/rer.linkmap.svg?style=plastic   :alt: Supported - Python Versions
+.. image:: https://img.shields.io/pypi/pyversions/rer.linkmap.svg?style=plastic
+    :alt: Supported - Python Versions
 
 .. image:: https://img.shields.io/pypi/l/rer.linkmap.svg
     :target: https://pypi.python.org/pypi/rer.linkmap/
     :alt: License
 
 
-===========
-rer.linkmap
-===========
+============
+RER Link map
+============
 
 "Amministrazione Trasparente" link map
 
 Features
 --------
 
-- Can be bullet points
-
-
-Examples
---------
-
-This add-on can be seen in action at the following sites:
-- Is there a page on the internet where everybody can see the features?
-
-
-Documentation
--------------
-
-Full documentation for end users can be found in the "docs" folder, and is also available online at http://docs.plone.org/foo/bar
-
-
-Translations
-------------
-
-This product has been translated into
-
-- Klingon (thanks, K'Plai)
+- Control panel for configuring all transparency-map URLs.
+- Dedicated outputs at portal root:
+	- `at_map.json`
+	- `at_map.xml`
+- Independent flags to enable/disable JSON and XML exposure.
+- REST API control panel integration (`linkmap-settings`).
 
 
 Installation
@@ -76,36 +61,82 @@ Install rer.linkmap by adding it to your buildout::
 and then running ``bin/buildout``
 
 
+Configuration
+-------------
+
+After installation, configure the add-on in:
+
+- Site Setup -> Link map settings (`linkmap-settings`)
+
+Main options:
+
+- `expose_json`: enable/disable `@@at_map.json`
+- `expose_xml`: enable/disable `@@at_map.xml`
+- `data_ultima_modifica`: date string in `GG/MM/AAAA`
+- one URL field for each transparency section key
+
+If a format is disabled, the corresponding view returns `404 Not Found`.
+
+Output Endpoints
+----------------
+Endpoints are available only on the portal root context:
+
+- `/at_map.json`
+- `/at_map.xml`
+
+JSON example
+------------
+
+.. code-block:: json
+
+    {
+        "at_art2_bis_c1": {
+            "amministrazione_trasparente": "https://www.example.org/amministrazione-trasparente",
+            "disposizioni_generali": "https://www.example.org/disposizioni-generali"
+        },
+        "data_ultima_modifica": "17/06/2026"
+    }
+
+XML example
+-----------
+
+.. code-block:: xml
+
+    <?xml version="1.0" encoding="utf-8"?>
+    <amministrazione_trasparente xmlns="https://guida-servizi.anticorruzione.it/trasparenza">
+        <data_ultima_modifica>18/06/2026</data_ultima_modifica>
+        <map>
+            <at_art2_bis_c1>
+                <amministrazione_trasparente>https://www.example.org/at</amministrazione_trasparente>
+                <accesso_civico>https://www.example.org/accesso-civico</accesso_civico>
+            </at_art2_bis_c1>
+        </map>
+    </amministrazione_trasparente>
+
+REST API Integration
+--------------------
+
+
+The add-on registers a restapi control panel adapter named
+`linkmap-settings`, based on the same schema used by the classic control panel.
+
+Credits
+-------
+
+Developed with the support of `Regione Emilia Romagna <http://www.regione.emilia-romagna.it>`_
+
+Regione Emilia Romagna supports the `PloneGov initiative <http://www.plonegov.it>`_.
+
 Authors
 -------
 
-Provided by awesome people ;)
+This product was developed by **RedTurtle Technology** team.
 
-
-Contributors
-------------
-
-Put your name here, you deserve it!
-
-- ?
-
-
-Contribute
-----------
-
-- Issue Tracker: https://github.com/collective/rer.linkmap/issues
-- Source Code: https://github.com/collective/rer.linkmap
-- Documentation: https://docs.plone.org/foo/bar
-
-
-Support
--------
-
-If you are having issues, please let us know.
-We have a mailing list located at: project@example.com
+Generated using `Cookieplone <https://github.com/plone/cookieplone>`_ and
+`cookieplone-templates <https://github.com/plone/cookieplone-templates>`_.
 
 
 License
 -------
 
-The project is licensed under the GPLv2.
+This project is licensed under the GPLv2.
