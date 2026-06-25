@@ -33,8 +33,6 @@ classifiers = [
 dependencies = [
     "plone.api",
     "plone.restapi",
-    "plone.volto",
-    
 ]
 
 [project.optional-dependencies]
