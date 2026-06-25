@@ -6,7 +6,6 @@ import logging
 import re
 import subprocess
 
-
 logger = logging.getLogger("i18n")
 logger.setLevel(logging.DEBUG)
 

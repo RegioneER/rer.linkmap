@@ -1,13 +1,5 @@
+# -*- coding: utf-8 -*-
 """Init and utils."""
-
 from zope.i18nmessageid import MessageFactory
 
-import logging
-
-__version__ = "1.0.6.dev0"
-
-PACKAGE_NAME = "rer.linkmap"
-
-_ = MessageFactory(PACKAGE_NAME)
-
-logger = logging.getLogger(PACKAGE_NAME)
+_ = MessageFactory("rer.linkmap")

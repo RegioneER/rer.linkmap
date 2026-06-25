@@ -1,8 +1,8 @@
 from datetime import date
-
-import re
 from zope.schema import URI
 from zope.schema.interfaces import InvalidURI
+
+import re
 
 CATEGORY_C1 = "at_art2_bis_c1"
 ROOT_KEY = "amministrazione_trasparente"
