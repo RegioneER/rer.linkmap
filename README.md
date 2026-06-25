@@ -26,7 +26,7 @@ Reference specification:
 ## Requirements
 
 - Plone 6 (tested with Plone 6.2)
-- Python 3.10 - 3.13
+- Python 3.8 - 3.13
 
 ## Installation
 
