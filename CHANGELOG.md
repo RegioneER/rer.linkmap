@@ -1,3 +1,12 @@
+## 1.0.5 (2026-06-25)
+
+
+### New features:
+
+- Initial feature release.
+  Added a control panel for insertig the linkmap's links.
+  Added two browser views that expose the linkmaps. [#1](https://github.com/redturtle/rer.linkmap/issues/1)
+
 ## 1.0.5 (unreleased)
 
 
