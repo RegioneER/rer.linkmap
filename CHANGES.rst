@@ -5,7 +5,8 @@ Changelog
 1.0.8 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Added the browserlayers to the at_map views.
+  [fedevancin]
 
 
 1.0.7 (2026-06-25)
