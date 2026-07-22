@@ -7,6 +7,8 @@ Changelog
 
 - Added the browserlayers to the at_map views.
   [fedevancin]
+- Fixed a controlpanel translation bug
+  [fedevancin]
 
 
 1.0.7 (2026-06-25)

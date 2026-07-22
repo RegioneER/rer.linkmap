@@ -36,31 +36,31 @@ msgid "data_ultima_modifica_description"
 msgstr "Data in formato GG/MM/AAAA. Se non impostata verra usata la data corrente."
 
 msgid "amministrazione_trasparente_title"
-msgstr "Amministrazione Trasparente"
+msgstr "Amministrazione trasparente"
 
 msgid "amministrazione_trasparente_description"
 msgstr "Inserisci l'url per questo dato"
 
 msgid "disposizioni_generali_title"
-msgstr "Disposizioni Generali"
+msgstr "Disposizioni generali"
 
 msgid "disposizioni_generali_description"
 msgstr "Inserisci l'url per questo dato"
 
 msgid "consulenti_collaboratori_title"
-msgstr "Consulenti Collaboratori"
+msgstr "Consulenti collaboratori"
 
 msgid "consulenti_collaboratori_description"
 msgstr "Inserisci l'url per questo dato"
 
 msgid "bandi_di_concorso_title"
-msgstr "Bandi Di Concorso"
+msgstr "Bandi di concorso"
 
 msgid "bandi_di_concorso_description"
 msgstr "Inserisci l'url per questo dato"
 
 msgid "enti_controllati_title"
-msgstr "Enti Controllati"
+msgstr "Enti controllati"
 
 msgid "enti_controllati_description"
 msgstr "Inserisci l'url per questo dato"
@@ -72,13 +72,13 @@ msgid "sovvenzioni_description"
 msgstr "Inserisci l'url per questo dato"
 
 msgid "beni_immobili_title"
-msgstr "Beni Immobili"
+msgstr "Beni immobili"
 
 msgid "beni_immobili_description"
 msgstr "Inserisci l'url per questo dato"
 
 msgid "opere_pubbliche_title"
-msgstr "Opere Pubbliche"
+msgstr "Opere pubbliche"
 
 msgid "opere_pubbliche_description"
 msgstr "Inserisci l'url per questo dato"
@@ -102,13 +102,13 @@ msgid "performance_description"
 msgstr "Inserisci l'url per questo dato"
 
 msgid "attivita_e_procedimenti_title"
-msgstr "Attivita E Procedimenti"
+msgstr "Attivita e procedimenti"
 
 msgid "attivita_e_procedimenti_description"
 msgstr "Inserisci l'url per questo dato"
 
 msgid "bandi_gara_e_contratti_title"
-msgstr "Bandi Gara E Contratti"
+msgstr "Bandi gara e contratti"
 
 msgid "bandi_gara_e_contratti_description"
 msgstr "Inserisci l'url per questo dato"
@@ -120,7 +120,7 @@ msgid "bilanci_description"
 msgstr "Inserisci l'url per questo dato"
 
 msgid "controlli_e_rilievi_title"
-msgstr "Controlli E Rilievi"
+msgstr "Controlli e rilievi"
 
 msgid "controlli_e_rilievi_description"
 msgstr "Inserisci l'url per questo dato"
@@ -132,7 +132,7 @@ msgid "pagamenti_description"
 msgstr "Inserisci l'url per questo dato"
 
 msgid "altri_contenuti_title"
-msgstr "Altri Contenuti"
+msgstr "Altri contenuti"
 
 msgid "altri_contenuti_description"
 msgstr "Inserisci l'url per questo dato"
@@ -144,211 +144,211 @@ msgid "provvedimenti_description"
 msgstr "Inserisci l'url per questo dato"
 
 msgid "servizi_erogati_title"
-msgstr "Servizi Erogati"
+msgstr "Servizi erogati"
 
 msgid "servizi_erogati_description"
 msgstr "Inserisci l'url per questo dato"
 
 msgid "informazioni_ambientali_title"
-msgstr "Informazioni Ambientali"
+msgstr "Informazioni ambientali"
 
 msgid "informazioni_ambientali_description"
 msgstr "Inserisci l'url per questo dato"
 
 msgid "interventi_straordinari_title"
-msgstr "Interventi Straordinari"
+msgstr "Interventi straordinari"
 
 msgid "interventi_straordinari_description"
 msgstr "Inserisci l'url per questo dato"
 
 msgid "pianificazione_governo_territorio_title"
-msgstr "Pianificazione Governo Territorio"
+msgstr "Pianificazione governo territorio"
 
 msgid "pianificazione_governo_territorio_description"
 msgstr "Inserisci l'url per questo dato"
 
 msgid "strutture_sanitarie_accreditate_title"
-msgstr "Strutture Sanitarie Accreditate"
+msgstr "Strutture sanitarie accreditate"
 
 msgid "strutture_sanitarie_accreditate_description"
 msgstr "Inserisci l'url per questo dato"
 
 msgid "atti_generali_title"
-msgstr "Atti Generali"
+msgstr "Atti generali"
 
 msgid "atti_generali_description"
 msgstr "Inserisci l'url per questo dato"
 
 msgid "rischi_corruttivi_e_trasparenza_title"
-msgstr "Rischi Corruttivi E Trasparenza"
+msgstr "Rischi corruttivi e trasparenza"
 
 msgid "rischi_corruttivi_e_trasparenza_description"
 msgstr "Inserisci l'url per questo dato"
 
 msgid "piano_integrato_attivita_organizzazione_title"
-msgstr "Piano Integrato Attivita Organizzazione"
+msgstr "Piano integrato attività organizzazione"
 
 msgid "piano_integrato_attivita_organizzazione_description"
 msgstr "Inserisci l'url per questo dato"
 
 msgid "piano_triennale_prevenzione_corruzione_e_trasparenza_title"
-msgstr "Piano Triennale Prevenzione Corruzione E Trasparenza"
+msgstr "Piano triennale prevenzione corruzione e trasparenza"
 
 msgid "piano_triennale_prevenzione_corruzione_e_trasparenza_description"
 msgstr "Inserisci l'url per questo dato"
 
 msgid "titolari_incarichi_collaborazione_consulenza_title"
-msgstr "Titolari Incarichi Collaborazione Consulenza"
+msgstr "Titolari incarichi collaborazione consulenza"
 
 msgid "titolari_incarichi_collaborazione_consulenza_description"
 msgstr "Inserisci l'url per questo dato"
 
 msgid "enti_diritto_privato_controllati_title"
-msgstr "Enti Diritto Privato Controllati"
+msgstr "Enti diritto privato controllati"
 
 msgid "enti_diritto_privato_controllati_description"
 msgstr "Inserisci l'url per questo dato"
 
 msgid "rappresentazione_grafica_title"
-msgstr "Rappresentazione Grafica"
+msgstr "Rappresentazione grafica"
 
 msgid "rappresentazione_grafica_description"
 msgstr "Inserisci l'url per questo dato"
 
 msgid "societa_partecipate_title"
-msgstr "Societa Partecipate"
+msgstr "Società partecipate"
 
 msgid "societa_partecipate_description"
 msgstr "Inserisci l'url per questo dato"
 
 msgid "criteri_e_modalita_title"
-msgstr "Criteri E Modalita"
+msgstr "Criteri e modalità"
 
 msgid "criteri_e_modalita_description"
 msgstr "Inserisci l'url per questo dato"
 
 msgid "atti_di_concessione_title"
-msgstr "Atti Di Concessione"
+msgstr "Atti di concessione"
 
 msgid "atti_di_concessione_description"
 msgstr "Inserisci l'url per questo dato"
 
 msgid "patrimonio_immobiliare_title"
-msgstr "Patrimonio Immobiliare"
+msgstr "Patrimonio immobiliare"
 
 msgid "patrimonio_immobiliare_description"
 msgstr "Inserisci l'url per questo dato"
 
 msgid "canoni_locazione_o_affitto_title"
-msgstr "Canoni Locazione O Affitto"
+msgstr "Canoni locazione o affitto"
 
 msgid "canoni_locazione_o_affitto_description"
 msgstr "Inserisci l'url per questo dato"
 
 msgid "tempi_costi_opere_pubbliche_title"
-msgstr "Tempi Costi Opere Pubbliche"
+msgstr "Tempi costi opere pubbliche"
 
 msgid "tempi_costi_opere_pubbliche_description"
 msgstr "Inserisci l'url per questo dato"
 
 msgid "atti_programmazione_opere_pubbliche_title"
-msgstr "Atti Programmazione Opere Pubbliche"
+msgstr "Atti programmazione opere pubbliche"
 
 msgid "atti_programmazione_opere_pubbliche_description"
 msgstr "Inserisci l'url per questo dato"
 
 msgid "organi_di_indirizzo_politico_amministativo_title"
-msgstr "Organi Di Indirizzo Politico Amministativo"
+msgstr "Organi di indirizzo politico amministrativo"
 
 msgid "organi_di_indirizzo_politico_amministativo_description"
 msgstr "Inserisci l'url per questo dato"
 
 msgid "telefono_e_posta_elettronica_title"
-msgstr "Telefono E Posta Elettronica"
+msgstr "Telefono e posta elettronica"
 
 msgid "telefono_e_posta_elettronica_description"
 msgstr "Inserisci l'url per questo dato"
 
 msgid "sanzioni_mancata_comunicazione_dati_title"
-msgstr "Sanzioni Mancata Comunicazione Dati"
+msgstr "Sanzioni mancata comunicazione dati"
 
 msgid "sanzioni_mancata_comunicazione_dati_description"
 msgstr "Inserisci l'url per questo dato"
 
 msgid "articolazione_uffici_title"
-msgstr "Articolazione Uffici"
+msgstr "Articolazione uffici"
 
 msgid "articolazione_uffici_description"
 msgstr "Inserisci l'url per questo dato"
 
 msgid "incarichi_amministrativi_di_vertice_title"
-msgstr "Incarichi Amministrativi Di Vertice"
+msgstr "Incarichi amministrativi di vertice"
 
 msgid "incarichi_amministrativi_di_vertice_description"
 msgstr "Inserisci l'url per questo dato"
 
 msgid "dirigenti_cessati_title"
-msgstr "Dirigenti Cessati"
+msgstr "Dirigenti cessati"
 
 msgid "dirigenti_cessati_description"
 msgstr "Inserisci l'url per questo dato"
 
 msgid "incarichi_conferiti_e_autorizzati_ai_dipendenti_title"
-msgstr "Incarichi Conferiti E Autorizzati Ai Dipendenti"
+msgstr "Incarichi conferiti e autorizzati ai dipendenti"
 
 msgid "incarichi_conferiti_e_autorizzati_ai_dipendenti_description"
 msgstr "Inserisci l'url per questo dato"
 
 msgid "contrattazione_integrativa_title"
-msgstr "Contrattazione Integrativa"
+msgstr "Contrattazione integrativa"
 
 msgid "contrattazione_integrativa_description"
 msgstr "Inserisci l'url per questo dato"
 
 msgid "titolari_incarichi_dirigenziali_non_generali_title"
-msgstr "Titolari Incarichi Dirigenziali Non Generali"
+msgstr "Titolari incarichi dirigenziali non generali"
 
 msgid "titolari_incarichi_dirigenziali_non_generali_description"
 msgstr "Inserisci l'url per questo dato"
 
 msgid "dotazione_organica_title"
-msgstr "Dotazione Organica"
+msgstr "Dotazione organica"
 
 msgid "dotazione_organica_description"
 msgstr "Inserisci l'url per questo dato"
 
 msgid "tassi_di_assenza_title"
-msgstr "Tassi Di Assenza"
+msgstr "Tassi di assenza"
 
 msgid "tassi_di_assenza_description"
 msgstr "Inserisci l'url per questo dato"
 
 msgid "contrattazione_collettiva_title"
-msgstr "Contrattazione Collettiva"
+msgstr "Contrattazione collettiva"
 
 msgid "contrattazione_collettiva_description"
 msgstr "Inserisci l'url per questo dato"
 
 msgid "ammontare_complessivo_dei_premi_title"
-msgstr "Ammontare Complessivo Dei Premi"
+msgstr "Ammontare complessivo dei premi"
 
 msgid "ammontare_complessivo_dei_premi_description"
 msgstr "Inserisci l'url per questo dato"
 
 msgid "dati_relativi_ai_premi_title"
-msgstr "Dati Relativi Ai Premi"
+msgstr "Dati relativi ai premi"
 
 msgid "dati_relativi_ai_premi_description"
 msgstr "Inserisci l'url per questo dato"
 
 msgid "tipologie_di_procedimento_title"
-msgstr "Tipologie Di Procedimento"
+msgstr "Tipologie di procedimento"
 
 msgid "tipologie_di_procedimento_description"
 msgstr "Inserisci l'url per questo dato"
 
 msgid "bilancio_preventivo_e_consuntivo_title"
-msgstr "Bilancio Preventivo E Consuntivo"
+msgstr "Bilancio preventivo e consuntivo"
 
 msgid "bilancio_preventivo_e_consuntivo_description"
 msgstr "Inserisci l'url per questo dato"
@@ -360,103 +360,103 @@ msgid "budget_description"
 msgstr "Inserisci l'url per questo dato"
 
 msgid "nuclei_di_valutazione_title"
-msgstr "Nuclei Di Valutazione"
+msgstr "Nuclei di valutazione"
 
 msgid "nuclei_di_valutazione_description"
 msgstr "Inserisci l'url per questo dato"
 
 msgid "corte_dei_conti_title"
-msgstr "Corte Dei Conti"
+msgstr "Corte dei conti"
 
 msgid "corte_dei_conti_description"
 msgstr "Inserisci l'url per questo dato"
 
 msgid "organi_revisione_amministrativa_e_contabile_title"
-msgstr "Organi Revisione Amministrativa E Contabile"
+msgstr "Organi revisione amministrativa e contabile"
 
 msgid "organi_revisione_amministrativa_e_contabile_description"
 msgstr "Inserisci l'url per questo dato"
 
 msgid "dati_sui_pagamenti_title"
-msgstr "Dati Sui Pagamenti"
+msgstr "Dati sui pagamenti"
 
 msgid "dati_sui_pagamenti_description"
 msgstr "Inserisci l'url per questo dato"
 
 msgid "tempestivita_dei_pagamenti_title"
-msgstr "Tempestivita Dei Pagamenti"
+msgstr "Tempestività dei pagamenti"
 
 msgid "tempestivita_dei_pagamenti_description"
 msgstr "Inserisci l'url per questo dato"
 
 msgid "IBAN_e_pagamenti_informatici_title"
-msgstr "Iban E Pagamenti Informatici"
+msgstr "Iban e pagamenti informatici"
 
 msgid "IBAN_e_pagamenti_informatici_description"
 msgstr "Inserisci l'url per questo dato"
 
 msgid "prevenzione_della_corruzione_title"
-msgstr "Prevenzione Della Corruzione"
+msgstr "Prevenzione della corruzione"
 
 msgid "prevenzione_della_corruzione_description"
 msgstr "Inserisci l'url per questo dato"
 
 msgid "accessibilita_e_catalogo_dati_title"
-msgstr "Accessibilita E Catalogo Dati"
+msgstr "Accessibilità e catalogo dati"
 
 msgid "accessibilita_e_catalogo_dati_description"
 msgstr "Inserisci l'url per questo dato"
 
 msgid "accesso_civico_title"
-msgstr "Accesso Civico"
+msgstr "Accesso civico"
 
 msgid "accesso_civico_description"
 msgstr "Inserisci l'url per questo dato"
 
 msgid "dati_ulteriori_title"
-msgstr "Dati Ulteriori"
+msgstr "Dati ulteriori"
 
 msgid "dati_ulteriori_description"
 msgstr "Inserisci l'url per questo dato"
 
 msgid "provvedimenti_organo_indirizzo_politico_title"
-msgstr "Provvedimenti Organo Indirizzo Politico"
+msgstr "Provvedimenti organo indirizzo politico"
 
 msgid "provvedimenti_organo_indirizzo_politico_description"
 msgstr "Inserisci l'url per questo dato"
 
 msgid "provvedimenti_dirigenti_amministrativi_title"
-msgstr "Provvedimenti Dirigenti Amministrativi"
+msgstr "Provvedimenti dirigenti amministrativi"
 
 msgid "provvedimenti_dirigenti_amministrativi_description"
 msgstr "Inserisci l'url per questo dato"
 
 msgid "servizi_e_standard_di_qualita_title"
-msgstr "Servizi E Standard Di Qualita"
+msgstr "Servizi e standard di qualità"
 
 msgid "servizi_e_standard_di_qualita_description"
 msgstr "Inserisci l'url per questo dato"
 
 msgid "costi_contabilizzati_title"
-msgstr "Costi Contabilizzati"
+msgstr "Costi contabilizzati"
 
 msgid "costi_contabilizzati_description"
 msgstr "Inserisci l'url per questo dato"
 
 msgid "servizi_in_rete_title"
-msgstr "Servizi In Rete"
+msgstr "Servizi in rete"
 
 msgid "servizi_in_rete_description"
 msgstr "Inserisci l'url per questo dato"
 
 msgid "class_action_title"
-msgstr "Class Action"
+msgstr "Class action"
 
 msgid "class_action_description"
 msgstr "Inserisci l'url per questo dato"
 
 msgid "liste_di_attesa_title"
-msgstr "Liste Di Attesa"
+msgstr "Liste di attesa"
 
 msgid "liste_di_attesa_description"
 msgstr "Inserisci l'url per questo dato"
