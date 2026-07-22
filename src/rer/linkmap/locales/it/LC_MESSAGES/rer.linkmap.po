@@ -102,7 +102,7 @@ msgid "performance_description"
 msgstr "Inserisci l'url per questo dato"
 
 msgid "attivita_e_procedimenti_title"
-msgstr "Attivita e procedimenti"
+msgstr "Attività e procedimenti"
 
 msgid "attivita_e_procedimenti_description"
 msgstr "Inserisci l'url per questo dato"
