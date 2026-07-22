@@ -5,7 +5,8 @@ Changelog
 1.0.9 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fixed a redirect issue when at_map was disabled via controlpanel.
+  [fedevancin]
 
 
 1.0.8 (2026-07-22)

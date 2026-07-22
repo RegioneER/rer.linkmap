@@ -63,8 +63,9 @@ class TestLinkmapViews(unittest.TestCase):
             "https://www.example.org/disposizioni-generali"
         )
 
-    def test_json_view_disabled_returns_not_found(self):
-        """Test that JSON view returns 404 when expose_json is False."""
+    def test_json_view_disabled_redirects_to_frontend(self):
+        """Test that JSON view redirects to the Volto frontend when
+        expose_json is False, instead of raising a raw NotFound."""
         api.portal.set_registry_record(
             "expose_json",
             False,
@@ -76,13 +77,19 @@ class TestLinkmapViews(unittest.TestCase):
             interface=ILinkMapSettings,
         )
 
-        with self.assertRaises(NotFound):
-            api.content.get_view(
-                name="at_map.json", context=self.portal, request=self.request
-            )()
+        output = api.content.get_view(
+            name="at_map.json", context=self.portal, request=self.request
+        )()
 
-    def test_xml_view_disabled_returns_not_found(self):
-        """Test that XML view returns 404 when expose_xml is False."""
+        assert output == ""
+        assert self.request.RESPONSE.getStatus() == 302
+        assert self.request.RESPONSE.getHeader("Location").endswith(
+            "/at_map.json"
+        )
+
+    def test_xml_view_disabled_redirects_to_frontend(self):
+        """Test that XML view redirects to the Volto frontend when
+        expose_xml is False, instead of raising a raw NotFound."""
         api.portal.set_registry_record(
             "expose_xml",
             False,
@@ -94,10 +101,13 @@ class TestLinkmapViews(unittest.TestCase):
             interface=ILinkMapSettings,
         )
 
-        with self.assertRaises(NotFound):
-            api.content.get_view(
-                name="at_map.xml", context=self.portal, request=self.request
-            )()
+        output = api.content.get_view(
+            name="at_map.xml", context=self.portal, request=self.request
+        )()
+
+        assert output == ""
+        assert self.request.RESPONSE.getStatus() == 302
+        assert self.request.RESPONSE.getHeader("Location").endswith("/at_map.xml")
 
     def test_json_view_ensures_required_root_key(self):
         """Test that JSON view adds required amministrazione_trasparente key."""

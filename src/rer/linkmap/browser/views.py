@@ -1,6 +1,8 @@
 from Acquisition import aq_base
 from json import dumps
 from plone import api
+from plone.registry.interfaces import IRegistry
+from plone.volto.interfaces import IVoltoSettings
 from Products.Five import BrowserView
 from rer.linkmap.linkmap import CATEGORY_C1
 from rer.linkmap.linkmap import CATEGORY_KEYS
@@ -10,6 +12,9 @@ from rer.linkmap.linkmap import is_valid_url
 from rer.linkmap.linkmap import today_date_string
 from xml.sax.saxutils import escape
 from zExceptions import NotFound
+from zope.component import getUtility
+
+import os
 
 REGISTRY_PREFIX = "rer.linkmap.controlpanels.settings.ILinkMapSettings"
 ROOT_KEY = "amministrazione_trasparente"
@@ -28,6 +33,29 @@ def get_expose_json():
 
 def get_expose_xml():
     return get_registry_value("expose_xml", default=True)
+
+
+def get_frontend_url():
+    """Return the public-facing Volto frontend URL.
+
+    Mirrors the fallback chain plone.volto itself uses to build frontend
+    URLs (see plone.volto.patches.construct_url): env var, then the
+    volto.frontend_domain registry record, falling back to the backend's
+    own (possibly VirtualHostBase-rewritten) URL.
+    """
+    frontend_domain = api.portal.get().absolute_url()
+    registry = getUtility(IRegistry)
+    settings = registry.forInterface(IVoltoSettings, prefix="volto", check=False)
+    settings_frontend_domain = os.environ.get("VOLTO_FRONTEND_DOMAIN") or getattr(
+        settings, "frontend_domain", None
+    )
+    if settings_frontend_domain:
+        frontend_domain = settings_frontend_domain
+    return frontend_domain.rstrip("/")
+
+
+def redirect_to_frontend(request, path):
+    request.response.redirect(f"{get_frontend_url()}/{path}")
 
 
 def get_data_ultima_modifica():
@@ -88,7 +116,8 @@ class ATMapJSONView(BrowserView):
         if aq_base(self.context) is not aq_base(api.portal.get()):
             raise NotFound()
         if not get_expose_json():
-            raise NotFound("JSON view is not enabled")
+            redirect_to_frontend(self.request, "at_map.json")
+            return ""
         self.request.response.setHeader(
             "Content-Type", "application/json; charset=utf-8"
         )
@@ -101,7 +130,8 @@ class ATMapXMLView(BrowserView):
         if aq_base(self.context) is not aq_base(api.portal.get()):
             raise NotFound()
         if not get_expose_xml():
-            raise NotFound("XML view is not enabled")
+            redirect_to_frontend(self.request, "at_map.xml")
+            return ""
         self.request.response.setHeader(
             "Content-Type", "application/xml; charset=utf-8"
         )
