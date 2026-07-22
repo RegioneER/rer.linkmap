@@ -84,7 +84,7 @@ class TestLinkmapViews(unittest.TestCase):
         assert output == ""
         assert self.request.RESPONSE.getStatus() == 302
         assert self.request.RESPONSE.getHeader("Location").endswith(
-            "/at_map.json"
+            "/pagina-non-disponibile"
         )
 
     def test_xml_view_disabled_redirects_to_frontend(self):
@@ -107,7 +107,9 @@ class TestLinkmapViews(unittest.TestCase):
 
         assert output == ""
         assert self.request.RESPONSE.getStatus() == 302
-        assert self.request.RESPONSE.getHeader("Location").endswith("/at_map.xml")
+        assert self.request.RESPONSE.getHeader("Location").endswith(
+            "/pagina-non-disponibile"
+        )
 
     def test_json_view_ensures_required_root_key(self):
         """Test that JSON view adds required amministrazione_trasparente key."""

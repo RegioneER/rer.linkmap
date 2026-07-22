@@ -18,6 +18,11 @@ import os
 
 REGISTRY_PREFIX = "rer.linkmap.controlpanels.settings.ILinkMapSettings"
 ROOT_KEY = "amministrazione_trasparente"
+# haproxy routes any path ending in "at_map.json"/"at_map.xml" to this same
+# view regardless of domain, so redirecting to a path ending the same way
+# would loop back here forever. Redirect to a path outside that ACL instead,
+# letting Volto render its normal not-found page for it.
+DISABLED_VIEW_REDIRECT_PATH = "pagina-non-disponibile"
 
 
 def get_registry_value(field_name, default=""):
@@ -54,8 +59,8 @@ def get_frontend_url():
     return frontend_domain.rstrip("/")
 
 
-def redirect_to_frontend(request, path):
-    request.response.redirect(f"{get_frontend_url()}/{path}")
+def redirect_to_disabled_view(request):
+    request.response.redirect(f"{get_frontend_url()}/{DISABLED_VIEW_REDIRECT_PATH}")
 
 
 def get_data_ultima_modifica():
@@ -116,7 +121,7 @@ class ATMapJSONView(BrowserView):
         if aq_base(self.context) is not aq_base(api.portal.get()):
             raise NotFound()
         if not get_expose_json():
-            redirect_to_frontend(self.request, "at_map.json")
+            redirect_to_disabled_view(self.request)
             return ""
         self.request.response.setHeader(
             "Content-Type", "application/json; charset=utf-8"
@@ -130,7 +135,7 @@ class ATMapXMLView(BrowserView):
         if aq_base(self.context) is not aq_base(api.portal.get()):
             raise NotFound()
         if not get_expose_xml():
-            redirect_to_frontend(self.request, "at_map.xml")
+            redirect_to_disabled_view(self.request)
             return ""
         self.request.response.setHeader(
             "Content-Type", "application/xml; charset=utf-8"
