@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.0.8 (unreleased)
+1.0.8 (2026-07-22)
 ------------------
 
 - Added the browserlayers to the at_map views.
