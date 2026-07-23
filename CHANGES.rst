@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.0.9 (unreleased)
+1.0.9 (2026-07-23)
 ------------------
 
 - Reverted the browserlayers addition and the at_map redirect-on-disabled
