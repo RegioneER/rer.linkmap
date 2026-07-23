@@ -13,6 +13,7 @@ from zExceptions import NotFound
 
 REGISTRY_PREFIX = "rer.linkmap.controlpanels.settings.ILinkMapSettings"
 ROOT_KEY = "amministrazione_trasparente"
+NAMESPACE = "https://guida-servizi.anticorruzione.it/trasparenza"
 
 
 def get_registry_value(field_name, default=""):
@@ -59,8 +60,15 @@ def build_payload():
     return payload
 
 
+def build_empty_xml():
+    return (
+        '<?xml version="1.0" encoding="utf-8"?>\n'
+        f'<amministrazione_trasparente xmlns="{NAMESPACE}"/>'
+    )
+
+
 def build_xml(payload):
-    root_open = '<amministrazione_trasparente xmlns="https://guida-servizi.anticorruzione.it/trasparenza">'
+    root_open = f'<amministrazione_trasparente xmlns="{NAMESPACE}">'
     lines = [
         '<?xml version="1.0" encoding="utf-8"?>',
         root_open,
@@ -87,11 +95,11 @@ class ATMapJSONView(BrowserView):
     def __call__(self):
         if aq_base(self.context) is not aq_base(api.portal.get()):
             raise NotFound()
-        if not get_expose_json():
-            raise NotFound("JSON view is not enabled")
         self.request.response.setHeader(
             "Content-Type", "application/json; charset=utf-8"
         )
+        if not get_expose_json():
+            return "{}"
         payload = build_payload()
         return dumps(payload, indent=2, ensure_ascii=False, sort_keys=True)
 
@@ -100,10 +108,10 @@ class ATMapXMLView(BrowserView):
     def __call__(self):
         if aq_base(self.context) is not aq_base(api.portal.get()):
             raise NotFound()
-        if not get_expose_xml():
-            raise NotFound("XML view is not enabled")
         self.request.response.setHeader(
             "Content-Type", "application/xml; charset=utf-8"
         )
+        if not get_expose_xml():
+            return build_empty_xml()
         payload = build_payload()
         return build_xml(payload)

@@ -5,10 +5,11 @@ Changelog
 1.0.9 (unreleased)
 ------------------
 
-- Fixed a redirect issue when at_map was disabled via controlpanel.
-  [fedevancin]
 - Reverted the browserlayers addition and the at_map redirect-on-disabled
   fix; these will ship in a later release.
+  [fedevancin]
+- at_map.json/at_map.xml now return a blank object instead of a 404 when the
+  corresponding format is disabled via the controlpanel.
   [fedevancin]
 
 
