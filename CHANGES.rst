@@ -7,6 +7,9 @@ Changelog
 
 - Fixed a redirect issue when at_map was disabled via controlpanel.
   [fedevancin]
+- Reverted the browserlayers addition and the at_map redirect-on-disabled
+  fix; these will ship in a later release.
+  [fedevancin]
 
 
 1.0.8 (2026-07-22)

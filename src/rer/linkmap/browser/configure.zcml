@@ -9,7 +9,6 @@
       for="Products.CMFPlone.interfaces.IPloneSiteRoot"
       class=".views.ATMapJSONView"
       permission="zope2.View"
-      layer="rer.linkmap.interfaces.IBrowserLayer"
       />
 
   <browser:page
@@ -17,7 +16,6 @@
       for="Products.CMFPlone.interfaces.IPloneSiteRoot"
       class=".views.ATMapXMLView"
       permission="zope2.View"
-      layer="rer.linkmap.interfaces.IBrowserLayer"
       />
 
 </configure>
