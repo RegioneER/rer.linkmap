@@ -15,7 +15,7 @@ long_description = "\n\n".join(
 
 setup(
     name="rer.linkmap",
-    version="1.0.9",
+    version="1.0.10.dev0",
     description="Amministrazione Trasparente link map",
     long_description=long_description,
     # Get more from https://pypi.org/classifiers/
