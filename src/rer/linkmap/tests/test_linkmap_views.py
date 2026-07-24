@@ -5,8 +5,11 @@ from plone import api
 from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID
 from rer.linkmap.controlpanels.settings import ILinkMapSettings
+from rer.linkmap.interfaces import IBrowserLayer
 from rer.linkmap.testing import RER_LINKMAP_INTEGRATION_TESTING  # noqa: E501
 from zExceptions import NotFound
+from zope.interface import alsoProvides
+from zope.interface import noLongerProvides
 
 import unittest
 
@@ -63,9 +66,8 @@ class TestLinkmapViews(unittest.TestCase):
             "https://www.example.org/disposizioni-generali"
         )
 
-    def test_json_view_disabled_returns_blank_object(self):
-        """Test that JSON view returns an empty object when expose_json is
-        False, as if the system was not configured at all."""
+    def test_json_view_disabled_returns_404(self):
+        """Test that JSON view raises NotFound when expose_json is False."""
         api.portal.set_registry_record(
             "expose_json",
             False,
@@ -77,16 +79,14 @@ class TestLinkmapViews(unittest.TestCase):
             interface=ILinkMapSettings,
         )
 
-        output = api.content.get_view(
+        view = api.content.get_view(
             name="at_map.json", context=self.portal, request=self.request
-        )()
+        )
+        with self.assertRaises(NotFound):
+            view()
 
-        assert "application/json" in self.request.RESPONSE.getHeader("Content-Type")
-        assert output == "{}"
-
-    def test_xml_view_disabled_returns_blank_object(self):
-        """Test that XML view returns an empty root element when
-        expose_xml is False, as if the system was not configured at all."""
+    def test_xml_view_disabled_returns_404(self):
+        """Test that XML view raises NotFound when expose_xml is False."""
         api.portal.set_registry_record(
             "expose_xml",
             False,
@@ -98,17 +98,11 @@ class TestLinkmapViews(unittest.TestCase):
             interface=ILinkMapSettings,
         )
 
-        output = api.content.get_view(
+        view = api.content.get_view(
             name="at_map.xml", context=self.portal, request=self.request
-        )()
-
-        assert "application/xml" in self.request.RESPONSE.getHeader("Content-Type")
-        root = safe_fromstring(output)
-        assert (
-            root.tag
-            == "{https://guida-servizi.anticorruzione.it/trasparenza}amministrazione_trasparente"
         )
-        assert len(root) == 0
+        with self.assertRaises(NotFound):
+            view()
 
     def test_json_view_ensures_required_root_key(self):
         """Test that JSON view adds required amministrazione_trasparente key."""
@@ -219,6 +213,28 @@ class TestLinkmapViews(unittest.TestCase):
         with self.assertRaises((NotFound, AttributeError)):
             page.restrictedTraverse("@@at_map.xml")()
 
+    def test_json_view_not_registered_without_browser_layer(self):
+        """Test that at_map.json is only registered while the add-on's
+        browser layer is applied to the request, i.e. while the add-on
+        is installed."""
+        noLongerProvides(self.request, IBrowserLayer)
+        try:
+            with self.assertRaises((NotFound, AttributeError)):
+                self.portal.restrictedTraverse("@@at_map.json")()
+        finally:
+            alsoProvides(self.request, IBrowserLayer)
+
+    def test_xml_view_not_registered_without_browser_layer(self):
+        """Test that at_map.xml is only registered while the add-on's
+        browser layer is applied to the request, i.e. while the add-on
+        is installed."""
+        noLongerProvides(self.request, IBrowserLayer)
+        try:
+            with self.assertRaises((NotFound, AttributeError)):
+                self.portal.restrictedTraverse("@@at_map.xml")()
+        finally:
+            alsoProvides(self.request, IBrowserLayer)
+
     def test_json_view_with_multiple_fields(self):
         """Test JSON view with multiple category fields."""
         api.portal.set_registry_record(
@@ -304,22 +320,25 @@ class TestLinkmapViews(unittest.TestCase):
         assert "amministrazione_trasparente" in c1
         assert "disposizioni_generali" not in c1
 
-    def test_default_expose_flags_are_true(self):
-        """Test that expose_json and expose_xml default to True."""
-        # Don't explicitly set the flags, verify they default to True
+    def test_default_expose_flags_are_false(self):
+        """Test that expose_json and expose_xml default to False, i.e. the
+        views are not exposed unless explicitly enabled."""
+        # Don't explicitly set the flags, verify they default to False
         api.portal.set_registry_record(
             "amministrazione_trasparente",
             "https://example.org/at",
             interface=ILinkMapSettings,
         )
 
-        # Both views should work with defaults
-        json_output = api.content.get_view(
+        # Both views should raise NotFound with defaults
+        json_view = api.content.get_view(
             name="at_map.json", context=self.portal, request=self.request
-        )()
-        xml_output = api.content.get_view(
+        )
+        xml_view = api.content.get_view(
             name="at_map.xml", context=self.portal, request=self.request
-        )()
+        )
 
-        assert loads(json_output)
-        assert "amministrazione_trasparente" in xml_output
+        with self.assertRaises(NotFound):
+            json_view()
+        with self.assertRaises(NotFound):
+            xml_view()
