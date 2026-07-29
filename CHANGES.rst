@@ -5,7 +5,14 @@ Changelog
 1.0.10 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Use lxml for the xml generation.
+  [fedevancin]
+- at_map views are now disabled by default in the controlpanel.
+  [fedevancin]
+- Added the layer to the at_map views.
+  [fedevancin]
+- Return NotFound when views are disabled, instead of empty objects.
+  [fedevancin]
 
 
 1.0.9 (2026-07-23)
