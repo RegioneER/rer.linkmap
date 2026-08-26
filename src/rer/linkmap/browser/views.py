@@ -1,7 +1,9 @@
+from AccessControl import Unauthorized
 from Acquisition import aq_base
 from json import dumps
 from lxml import etree
 from plone import api
+from plone.registry.interfaces import IRegistry
 from Products.Five import BrowserView
 from rer.linkmap.linkmap import CATEGORY_C1
 from rer.linkmap.linkmap import CATEGORY_KEYS
@@ -9,7 +11,17 @@ from rer.linkmap.linkmap import ensure_required_root_url
 from rer.linkmap.linkmap import is_valid_date
 from rer.linkmap.linkmap import is_valid_url
 from rer.linkmap.linkmap import today_date_string
+from urllib.parse import urlsplit
+from urllib.parse import urlunsplit
 from zExceptions import NotFound
+from zope.component import getUtility
+
+try:
+    from plone.volto.interfaces import IVoltoSettings
+
+    HAS_PLONE_VOLTO = True
+except ImportError:
+    HAS_PLONE_VOLTO = False
 
 REGISTRY_PREFIX = "rer.linkmap.controlpanels.settings.ILinkMapSettings"
 ROOT_KEY = "amministrazione_trasparente"
@@ -38,20 +50,70 @@ def get_data_ultima_modifica():
     return today_date_string()
 
 
-def build_category_map_from_fields():
+def get_frontend_url():
+    """Return the public (frontend) base url for this Plone site.
+
+    Editors fill in the category fields as plain absolute urls, and they
+    often copy them while browsing the backend, so internal links may end
+    up with the backend/IAM domain baked in. Falls back to the current
+    portal absolute_url() when plone.volto is not installed or
+    ``volto.frontend_domain`` has not been configured.
+    """
+    portal_url = api.portal.get().absolute_url()
+    if not HAS_PLONE_VOLTO:
+        return portal_url
+    registry = getUtility(IRegistry)
+    settings = registry.forInterface(IVoltoSettings, prefix="volto", check=False)
+    frontend_domain = (getattr(settings, "frontend_domain", "") or "").rstrip("/")
+    if not frontend_domain or frontend_domain == "http://localhost:3000":
+        return portal_url
+    return frontend_domain
+
+
+def resolve_internal_url(value, frontend_url):
+    """If ``value`` points to an object inside this Plone site, rewrite it
+    so that it always uses the public frontend domain, regardless of the
+    domain that was used to author it (e.g. the backend/IAM domain).
+    External urls are returned unchanged.
+    """
+    parsed = urlsplit(value)
+    path = parsed.path.strip("/")
+    if not path:
+        return value
+    portal = api.portal.get()
+    try:
+        target = portal.unrestrictedTraverse(path, None)
+    except (AttributeError, KeyError, TypeError, ValueError, Unauthorized):
+        target = None
+    if target is None:
+        return value
+    frontend_parts = urlsplit(frontend_url)
+    return urlunsplit(
+        (
+            frontend_parts.scheme,
+            frontend_parts.netloc,
+            parsed.path,
+            parsed.query,
+            parsed.fragment,
+        )
+    )
+
+
+def build_category_map_from_fields(frontend_url):
     """Build category map from individual field values."""
     category_map = {}
     for key in CATEGORY_KEYS:
         value = get_registry_value(key)
         if value and is_valid_url(value.strip()):
-            category_map[key] = value.strip()
+            category_map[key] = resolve_internal_url(value.strip(), frontend_url)
     return category_map
 
 
 def build_payload():
     data_ultima_modifica = get_data_ultima_modifica()
-    category_map = build_category_map_from_fields()
-    ensure_required_root_url(category_map, api.portal.get().absolute_url())
+    frontend_url = get_frontend_url()
+    category_map = build_category_map_from_fields(frontend_url)
+    ensure_required_root_url(category_map, frontend_url)
 
     payload = {
         "data_ultima_modifica": data_ultima_modifica,

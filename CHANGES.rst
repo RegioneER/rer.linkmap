@@ -13,6 +13,9 @@ Changelog
   [fedevancin]
 - Return NotFound when views are disabled, instead of empty objects.
   [fedevancin]
+- Internal links in the category fields now always use the public frontend
+  domain instead of the backend one.
+  [fedevancin]
 
 
 1.0.9 (2026-07-23)
