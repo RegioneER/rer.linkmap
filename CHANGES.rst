@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.0.10 (unreleased)
+1.0.10 (2026-08-28)
 -------------------
 
 - Use lxml for the xml generation.
