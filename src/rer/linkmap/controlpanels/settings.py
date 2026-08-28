@@ -33,7 +33,7 @@ class ILinkMapSettings(Interface):
             "formato JSON.",
         ),
         required=False,
-        default=True,
+        default=False,
     )
 
     expose_xml = Bool(
@@ -44,7 +44,7 @@ class ILinkMapSettings(Interface):
             "formato XML.",
         ),
         required=False,
-        default=True,
+        default=False,
     )
 
     data_ultima_modifica = TextLine(
