@@ -5,7 +5,8 @@ Changelog
 1.0.11 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Remove the registry records on uninstall.
+  [fedevancin]
 
 
 1.0.10 (2026-08-28)
