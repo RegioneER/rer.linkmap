@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.0.11 (unreleased)
+1.0.11 (2026-11-02)
 -------------------
 
 - Remove the registry records on uninstall.
